@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Pages
 import Main from "./pages/main";
 import Vendor from "./pages/vendor";
+import NotFound from "./pages/not-found";
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/vendor" element={<Vendor />} />
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
