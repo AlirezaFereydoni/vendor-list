@@ -1,0 +1,17 @@
+@import "../../theme/index.scss";
+
+.rate-badge {
+  display: flex;
+  font-size: 12px;
+
+  &-box {
+    background-color: rgba($green, 0.3);
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    margin-right: 1rem;
+  }
+
+  &-rating {
+    color: $light_grey;
+  }
+}
