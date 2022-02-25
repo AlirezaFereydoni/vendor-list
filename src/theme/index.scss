@@ -1,0 +1,9 @@
+// Mixins
+@mixin centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Variables
+$light_purple: #2b7eeb;
