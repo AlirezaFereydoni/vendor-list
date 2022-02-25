@@ -10,7 +10,7 @@ const ENV = mode[0];
 
 const environment = {
   dev: {
-    BASE_URL: "http://localhost:8000",
+    BASE_URL: "https://snappfood.ir",
   },
 
   uat: {

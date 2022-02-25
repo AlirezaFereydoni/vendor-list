@@ -1,0 +1,16 @@
+@import "../../theme/index.scss";
+
+.main-page {
+  width: 100%;
+  height: 100vh;
+  @include centering;
+  flex-direction: column;
+
+  &-title {
+    margin-bottom: 2rem;
+  }
+
+  &-link {
+    color: $light_purple;
+  }
+}

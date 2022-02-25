@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Pages
 import Main from "./pages/main";
 import Vendor from "./pages/vendor";
-import NotFound from "./pages/not-found";
+import NotFound from "./pages/notFound";
 
 const App = () => {
   return (
