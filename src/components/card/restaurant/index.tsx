@@ -1,3 +1,5 @@
+import { forwardRef, Ref } from "react";
+
 // Style
 import "./style.scss";
 
@@ -5,7 +7,7 @@ import "./style.scss";
 import { iVendor } from "../../../types/interfaces";
 import RateBadge from "../../rate";
 
-const RestaurantCard = (props: iVendor) => {
+const RestaurantCard = (props: iVendor, ref: Ref<HTMLAreaElement>) => {
   const {
     backgroundImage = "",
     backgroundImageCustom = "",
@@ -18,7 +20,7 @@ const RestaurantCard = (props: iVendor) => {
   } = { ...props };
 
   return (
-    <article className="restaurant-card">
+    <article className="restaurant-card" ref={ref}>
       <div className="restaurant-card-view">
         {/* {<div className="restaurant-card-view-discount">{}</div>}   I couldn't find suitable response for this  */}
         <img
@@ -52,4 +54,4 @@ const RestaurantCard = (props: iVendor) => {
   );
 };
 
-export default RestaurantCard;
+export default forwardRef(RestaurantCard);

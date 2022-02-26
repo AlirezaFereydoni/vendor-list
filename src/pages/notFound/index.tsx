@@ -7,9 +7,9 @@ import MainPageLayout from "../../layouts/mainPage";
 const NotFound = () => {
   return (
     <MainPageLayout>
-      <div className="not-found">
+      <main className="not-found">
         <h1 className="not-found-message">Not Found</h1>
-      </div>
+      </main>
     </MainPageLayout>
   );
 };

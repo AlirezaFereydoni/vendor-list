@@ -1,10 +1,7 @@
 export interface iVendorList {
-  status: boolean;
-  data: {
-    count: number;
-    open_count: number;
-    finalResult: [iText, iVendor];
-  };
+  count: number;
+  open_count: number;
+  finalResult: [iText, iVendor];
 }
 
 export interface iText {
@@ -33,7 +30,7 @@ export interface iVendor {
     serviceFee: number;
     deliveryArea: string;
     discount: number;
-    isOpen: true;
+    isOpen: boolean;
     minDeliveryFee: number;
     maxDeliveryFee: number;
     deliveryTime: number;
@@ -66,5 +63,55 @@ export interface iVendor {
     discountForAll: boolean;
     containerFee: number;
     deliveryGuarantee: boolean;
+    badges: { [key: string]: string }[];
+    discountStartHour1: string;
+    discountStopHour1: string;
+    discountStartHour2: string;
+    discountStopHour2: string;
+    discountValueForView: number;
+    coverPath: string;
+    cuisinesArray: {
+      id: number;
+      title: string;
+    }[];
+    preOrderEnabled: boolean;
+    vendorType: string;
+    childType: string;
+    budgetClass: string;
+    vendorTypeTitle: string;
+    isZFExpress: boolean;
+    deliveryFee: number;
+    backgroundImage: string;
+    backgroundImageCustom: string;
+    has_coupon: boolean;
+    coupon_count: number;
+    best_coupon: string;
+    userImage: { [key: string]: string | number | boolean }[];
+    menuImage: any[];
+    countReview: number;
+    countOfUserImages: number;
+    deliveryFeeDiscount: number;
+    trendingScore: number;
+    delay: string;
+    deliver: boolean;
+    eta: number;
+    min_eta: number;
+    max_eta: number;
+    open_at_eta: boolean;
+    action: string;
+    has_delay: boolean;
+    delay_time: number;
+    total_time: number;
+    bid: boolean;
+    superTypeAlias: string;
+    is_food_party: boolean;
+    is_market_party: boolean;
+    click_id: null;
+    cpc_campaign_hash: null;
+    is_ecommerce: boolean;
+    is_economical: boolean;
+    is_grocery_vip: boolean;
+    is_grocery_returnable: boolean;
+    is_grocery_economic: boolean;
   };
 }
