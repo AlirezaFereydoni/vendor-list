@@ -2,7 +2,7 @@
 import "./style.scss";
 
 // Hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Layout
@@ -18,17 +18,19 @@ const Vendor = () => {
   const dispatch = useDispatch();
   const Vendors = useSelector(state => state.Vendors);
   const [page, setPage] = useState(0);
+  const WrapperRef = useRef < HTMLDivElement > null;
 
   const LAT = 35.754;
   const LONG = 51.328;
-  let debounceTimer = "";
 
   // check End of scroll
   useEffect(() => {
     const handleScroll = () => {
-      let vendorList = document.querySelector(".vendor");
-      if (window.scrollY + window.innerHeight >= vendorList.offsetHeight) {
-        getMoreVendor();
+      if (window.scrollY + window.innerHeight >= WrapperRef.offsetHeight) {
+        getMoreVendor(
+          setPage(prev => prev + 1),
+          1000
+        );
       }
     };
 
@@ -43,16 +45,20 @@ const Vendor = () => {
   }, [dispatch, page]);
 
   // add next page and debouncing extra get list
-  const getMoreVendor = () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      setPage(prev => prev + 1);
-    }, 1000);
+  const getMoreVendor = (fn, delay) => {
+    let debounceTimer;
+
+    return (...args) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        fn(...args);
+      }, delay);
+    };
   };
 
   return (
     <MainPageLayout>
-      <main className="vendor">
+      <main className="vendor" ref={WrapperRef}>
         {Vendors?.finalResult?.length &&
           Vendors.finalResult.map((item, i) => {
             return item.type === "VENDOR" ? (
